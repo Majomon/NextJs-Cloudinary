@@ -1,14 +1,23 @@
 "use client";
+import { useState } from "react";
+import { handlerSubmit } from "./utils/handlerSubmit";
+
 function HomePage() {
+  const [file, setFile] = useState(null);
   return (
     <div>
-      <form>
+      <form
+        onSubmit={(e) => {
+          handlerSubmit(e);
+        }}
+      >
         <input
           type="file"
           onChange={(e) => {
-            console.log(e.target.files[0]);
+            setFile(e.target.files[0]);
           }}
         />
+        <button type="submit">Enviar</button>
       </form>
     </div>
   );
