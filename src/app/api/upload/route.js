@@ -2,9 +2,8 @@ import { NextResponse } from "next/server";
 //Guardar archivos, leer, eliminar, etc
 import { writeFile } from "fs/promises";
 //Modulo que nos da toda la ruta de manera automatica
-import path from "path";
+/* import path from "path"; */
 import { v2 as cloudinary } from "cloudinary";
-import { log } from "console";
 
 cloudinary.config({
   cloud_name: "majomon",
@@ -23,13 +22,25 @@ export async function POST(request) {
   const bytes = await image.arrayBuffer();
   const buffer = Buffer.from(bytes);
 
-  //Ruta del archivo
+  /*   //Ruta del archivo
   const filePatch = path.join(process.cwd(), "public", image.name);
   //Crear archivo
-  await writeFile(filePatch, buffer);
+  await writeFile(filePatch, buffer); */
 
   //Ahora el archivo se lo paso a cloudinary
-  const res = await cloudinary.uploader.upload(filePatch);
-  console.log(res);
+  /*  const res = await cloudinary.uploader.upload(buffer); */
+
+  const res = await new Promise((resolve, reject) => {
+    cloudinary.uploader
+      .upload_stream({}, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      })
+      .end(buffer);
+  });
+
+  /*   console.log(res); */
   return NextResponse.json({ message: "Imagen subida", url: res.secure_url });
 }
