@@ -8,7 +8,7 @@ function HomePage() {
     <div>
       <form
         onSubmit={(e) => {
-          handlerSubmit(e);
+          handlerSubmit({ e, file });
         }}
       >
         <input
