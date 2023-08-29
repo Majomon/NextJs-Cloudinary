@@ -3,6 +3,13 @@ import { NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
 //Modulo que nos da toda la ruta de manera automatica
 import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  cloud_name: "majomon",
+  api_key: "814512663123947",
+  api_secret: "Ll89iRjrUGw6serOb21Bj-FBgyE",
+});
 
 export async function POST(request) {
   const data = await request.formData();
