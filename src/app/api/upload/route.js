@@ -4,6 +4,7 @@ import { writeFile } from "fs/promises";
 //Modulo que nos da toda la ruta de manera automatica
 import path from "path";
 import { v2 as cloudinary } from "cloudinary";
+import { log } from "console";
 
 cloudinary.config({
   cloud_name: "majomon",
@@ -26,5 +27,9 @@ export async function POST(request) {
   const filePatch = path.join(process.cwd(), "public", image.name);
   //Crear archivo
   await writeFile(filePatch, buffer);
-  return NextResponse.json("Imagen subida");
+
+  //Ahora el archivo se lo paso a cloudinary
+  const res = await cloudinary.uploader.upload(filePatch);
+  console.log(res);
+  return NextResponse.json({ message: "Imagen subida", url: res.secure_url });
 }
