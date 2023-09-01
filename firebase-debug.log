@@ -1,0 +1,21 @@
+[debug] [2023-09-01T14:05:53.953Z] ----------------------------------------------------------------------
+[debug] [2023-09-01T14:05:53.955Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Mauri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-09-01T14:05:53.955Z] CLI Version:   12.5.2
+[debug] [2023-09-01T14:05:53.955Z] Platform:      win32
+[debug] [2023-09-01T14:05:53.955Z] Node Version:  v18.17.1
+[debug] [2023-09-01T14:05:53.957Z] Time:          Fri Sep 01 2023 11:05:53 GMT-0300 (hora estándar de Argentina)
+[debug] [2023-09-01T14:05:53.957Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-01T14:05:53.968Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-01T14:05:53.968Z] > authorizing via signed-in user (mauri.monzon91@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Programacion\Proyectos propios\NextJs\Primeros proyectos\Nextjs-Cloudinary
+
